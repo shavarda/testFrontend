@@ -1,0 +1,25 @@
+.search {
+    margin-bottom: 20px;
+}
+
+.nav__elems {
+    margin-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.nav__elem {
+    display: inline-block;
+}
+
+.nav__elem + .nav__elem {
+    margin-left: 20px;
+}
+
+.chart {
+    height: 300px;
+}

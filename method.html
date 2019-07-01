@@ -1,0 +1,66 @@
+<!DOCTYPE>
+<html ng-app="methodApp">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.bundle.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body ng-controller="methodController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>
+                    Название
+                </h1>
+            </div>
+            
+            <nav class="col-12">
+                <div class="nav__elems">
+                    <a href="index.html" class="nav__elem">
+                        Главная
+                    </a>
+                    <a href="method.html" class="nav__elem">
+                        Метод покупки
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="col-12 col-lg-6">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Проект
+                            </th>
+                            <th>
+                                Использовали
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in list | orderBy: '-number'">
+                            <td>
+                                {{item.name}}
+                            </td>
+                            <td>
+                               {{item.number}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="col-12 col-lg-6 chart">
+                <canvas id="myChart"></canvas>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE>
+<html ng-app="transactionsApp">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body ng-controller="transactionsController">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <h1>
+                    Название
+                </h1>
+            </div>
+            
+            <nav class="col-12">
+                <div class="nav__elems">
+                    <a href="index.html" class="nav__elem">
+                        Главная
+                    </a>
+                    <a href="method.html" class="nav__elem">
+                        Метод покупки
+                    </a>
+                </div>
+            </nav>
+            
+            <div class="col-12 search">
+                <div class="row">
+                    <div class="col-12">
+                        Поиск:
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="project" class="form-control" ng-model="search.transaction.project.name" placeholder="Название проекта">
+                    </div>
+                    <div class="col-3">
+                        <input type="text" id="user" class="form-control" ng-model="search.user.id" placeholder="Имя пользователя">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>
+                                Проект
+                            </th>
+                            <th>
+                                Метод покупки
+                            </th>
+                            <th>
+                                Статус
+                            </th>
+                            <th>
+                                Пользователь
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in list | filter:search:strict">
+                            <td>
+                                {{item.transaction.project.name}}
+                            </td>
+                            <td>
+                                {{item.transaction.payment_method.name}}
+                            </td>
+                            <td>
+                                {{item.transaction.status}}
+                            </td>
+                            <td>
+                                {{item.user.id}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
